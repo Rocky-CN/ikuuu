@@ -23,7 +23,7 @@ def login_and_get_cookie():
     session = requests.Session()
     
     # 首先访问登录页面获取必要的信息
-    login_page_url = "https://ikuuu.com/auth/login"
+    login_page_url = "https://ikuuu.org/auth/login"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0'
     }
@@ -49,10 +49,10 @@ def login_and_get_cookie():
             login_data['_token'] = csrf_token
         
         # 发送登录请求
-        login_url = "https://ikuuu.com/auth/login"
+        login_url = "https://ikuuu.org/auth/login"
         headers.update({
-            'Origin': 'https://ikuuu.com',
-            'Referer': 'https://ikuuu.com/auth/login',
+            'Origin': 'https://ikuuu.org',
+            'Referer': 'https://ikuuu.org/auth/login',
             'Content-Type': 'application/x-www-form-urlencoded'
         })
         
@@ -82,11 +82,11 @@ def login_and_get_cookie():
 def checkin(cookie):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0',
-        'Origin': 'https://ikuuu.com',
-        'Referer': 'https://ikuuu.com/user',
+        'Origin': 'https://ikuuu.org',
+        'Referer': 'https://ikuuu.org/user',
         'Cookie': cookie
     }
-    url = "https://ikuuu.com/user/checkin"
+    url = "https://ikuuu.org/user/checkin"
     
     try:
         response = requests.post(url, headers=headers)
@@ -108,11 +108,11 @@ def checkin(cookie):
 def get_user_traffic(cookie):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0',
-        'Origin': 'https://ikuuu.com',
-        'Referer': 'https://ikuuu.com/user/code',
+        'Origin': 'https://ikuuu.org',
+        'Referer': 'https://ikuuu.org/user/code',
         'Cookie': cookie
     }
-    url = "https://ikuuu.com/user"
+    url = "https://ikuuu.org/user"
     
     try:
         response = requests.get(url, headers=headers)
